@@ -10,49 +10,52 @@ body {
       #e2d45c 100%);
 }
 
+.card_Container {
+  max-width: 100%;
+}
+
+.catalog .info {
+  margin: auto 50px;
+}
+
 .catalog {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   text-align: center;
   padding: 20px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  margin: 15px;
+  border-radius: 10px;
 }
 
 .team {
+  display: flex;
+  flex-direction: column;
   background-color: #fff;
-  border: 1px solid #ddd;
   border-radius: 5px;
   margin: 10px;
-  padding: 20px;
   text-align: center;
   width: 250px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  border: 1px solid #ccc;
 }
 
-.catalog .teamx {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  margin-top: 200px;
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.team img {
-  width: 100%;
+img {
   height: 200px;
   border-radius: 50%;
 }
 
-.team h2 {
+h2 {
   font-size: 1.2rem;
   margin: 10px 0;
 }
 
-.team button {
+button {
   background-color: #007bff;
+  width: 80px;
   border: none;
   color: white;
   padding: 5px 5px;
@@ -60,16 +63,16 @@ body {
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin: 10px 2px;
+  margin: 1rem auto;
   cursor: pointer;
   border-radius: 5px;
 }
 
-.team button:hover {
+button:hover {
   background-color: #0056b3;
 }
 
-.team .input {
+.input {
   width: 40px;
   height: 30px;
   text-align: center;
@@ -79,7 +82,7 @@ body {
   margin-left: 100px;
 }
 
-.team .teamGool {
+.teamGool {
   font-size: 1.2rem;
   margin: 10px 0;
 }
@@ -100,4 +103,10 @@ div#resultGool {
       #b6ac51 100%);
 
   border-radius: 10px;
+}
+
+.info {
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }

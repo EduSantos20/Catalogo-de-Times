@@ -1,134 +1,105 @@
-/**document.addEventListener("DOMContentLoaded", () => {
-  const catalog = document.querySelector(".catalog")
-
-  fetch("players.json")
-    .then((response) => response.json())
-    .then((data) => {
-      data.players.forEach((player) => {
-        const playerCard = document.createElement("div")
-        playerCard.classList.add("team")
-
-        const nameTime = document.createElement("h2")
-        nameTime.textContent = player.nameTime
-
-        const img = document.createElement("img")
-        img.src = player.image
-        img.alt = player.nameTime
-
-        const labelGool = document.createElement("label")
-        labelGool.classList.add("teamGool")
-        labelGool.textContent = `Gools`
-
-        const inputGool = document.createElement("input")
-        inputGool.type = "text"
-        inputGool.classList.add("input")
-        inputGool.placeholder = "0"
-        inputGool.id = "gool"
-
-        const divResult = document.createElement("div")
-        divResult.id = "result"
-
-        const divResultGool = document.createElement("div")
-        divResultGool.id = "resultGool"
-
-        const button = document.createElement("button")
-        button.type = "button"
-        button.textContent = "Vitória"
-        button.onclick = function vote() {
-          const resultDiv = document.getElementById("result")
-          resultDiv.innerHTML = " "
-          const resultGoolDiv = document.getElementById("resultGool")
-          resultGoolDiv.innerHTML = " "
-          var gool = document.getElementById("gool").value
-          gool.innerHTML = " "
-          if (gool == 0) {
-            resultDiv.textContent = `Vitória do ${player.nameTime}`
-          } else {
-            resultGoolDiv.textContent = `Vitoria do ${player.nameTime} com ${gool} Gools.`
-          }
-        }
-
-        playerCard.appendChild(nameTime)
-        playerCard.appendChild(img)
-        playerCard.appendChild(labelGool)
-        playerCard.appendChild(inputGool)
-        playerCard.appendChild(button)
-        playerCard.appendChild(divResult)
-        playerCard.appendChild(divResultGool)
-
-        catalog.appendChild(playerCard)
-      })
-    })
-    .catch((error) => console.error("Erro ao carregar os dados:", error))
-})**/
-
-players = [
+const card = [
   {
-    nameTime: "SÃO PAULO",
-    image: "img/saopaulo.png",
-    gool: 0,
-  },
-  {
-    nameTime: "CORINTHIANS",
-    image: "img/corinthinas.png",
-    gool: 0,
+    nameTime1: "SÃO PAULO",
+    image1: "img/saopaulo.png",
+    nameTime2: "CORINTHIANS",
+    image2: "img/corinthinas.png",
   },
 ]
+const cardContainer = document.querySelector(".card_Container")
 
-const lista = document.querySelector(".catalog")
-
-players.forEach((item) => {
+for (let i = 0; i < card.length; i++) {
+  const cards = document.createElement("div")
+  cards.classList.add("catalog")
+  /**Primeiro card */
   const playerCard = document.createElement("div")
   playerCard.classList.add("team")
 
   const nameTime = document.createElement("h2")
-  nameTime.textContent = item.nameTime
+  nameTime.textContent = card[i].nameTime1
 
-  const img = document.createElement("img")
-  img.src = item.image
-  img.alt = item.nameTime
+  var img = document.createElement("img")
+  img.src = card[i].image1
+  img.alt = "Info da imagem"
 
   const labelGool = document.createElement("label")
   labelGool.classList.add("teamGool")
-  labelGool.textContent = `Gools`
+  labelGool.textContent = `Gols`
 
   const inputGool = document.createElement("input")
   inputGool.type = "text"
   inputGool.classList.add("input")
-  inputGool.placeholder = item.gool
-  inputGool.id = "gool"
+  inputGool.placeholder = "0"
+  inputGool.id = `gool`
 
-  const divResult = document.createElement("div")
-  divResult.id = "result"
-
-  const divResultGool = document.createElement("div")
-  divResultGool.id = "resultGool"
-
-  const button = document.createElement("button")
+  var button = document.createElement("button")
   button.type = "button"
   button.textContent = "Vitória"
-  button.id = "button"
-  button.onclick = function vote() {
-    const resultDiv = document.getElementById("result")
-    resultDiv.innerHTML = " "
-    const resultGoolDiv = document.getElementById("resultGool")
-    resultGoolDiv.innerHTML = " "
-    var gool = document.getElementById("gool").value
-    gool.innerHTML = " "
-    if (gool == 0) {
-      resultDiv.textContent = `Vitória do ${item.nameTime}`
-    } else {
-      resultGoolDiv.textContent = `Vitoria do ${item.nameTime} com ${gool} Gools.`
-    }
-  }
+  button.classList.add("button")
+  button.id = "vitoria"
+  button.onclick = function vote() {}
 
   playerCard.appendChild(nameTime)
   playerCard.appendChild(img)
   playerCard.appendChild(labelGool)
   playerCard.appendChild(inputGool)
   playerCard.appendChild(button)
-  playerCard.appendChild(divResult)
-  playerCard.appendChild(divResultGool)
 
-  lista.appendChild(playerCard)
-})
+  /**div empate */
+
+  const cardInfo = document.createElement("div")
+  cardInfo.classList.add("info")
+
+  const empate = document.createElement("h2")
+  empate.classList.add("result")
+  empate.id = "result"
+
+  var button = document.createElement("button")
+  button.type = "button"
+  button.textContent = "EMPATE"
+  button.classList.add("button")
+  button.id = "empate"
+  button.onclick = function vote() {}
+
+  cardInfo.appendChild(button)
+
+  /**Segundo card */
+  var playcar = document.createElement("div")
+  playcar.classList.add("team")
+
+  const name = document.createElement("h2")
+  name.textContent = card[i].nameTime2
+
+  const img1 = document.createElement("img")
+  img1.src = card[i].image2
+  img1.alt = "Info da imagem"
+
+  const label = document.createElement("label")
+  label.classList.add("teamGool")
+  label.textContent = `Gols`
+
+  const input = document.createElement("input")
+  input.type = "text"
+  input.classList.add("input")
+  input.placeholder = "0"
+  input.id = `gool`
+
+  var button = document.createElement("button")
+  button.type = "button"
+  button.textContent = "Vitória"
+  button.classList.add("button")
+  button.id = "empate"
+  button.onclick = function vote() {}
+
+  playcar.appendChild(name)
+  playcar.appendChild(img1)
+  playcar.appendChild(label)
+  playcar.appendChild(input)
+  playcar.appendChild(button)
+
+  cards.appendChild(playerCard)
+  cards.appendChild(cardInfo)
+  cards.appendChild(playcar)
+
+  cardContainer.append(cards)
+}
