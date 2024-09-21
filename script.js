@@ -5,6 +5,12 @@ const card = [
     nameTime2: "CORINTHIANS",
     image2: "img/corinthinas.png",
   },
+  {
+    nameTime1: "FLAMENFO",
+    image1: "img/flamengo.png",
+    nameTime2: "GREMIO",
+    image2: "img/gremio.png",
+  },
 ]
 const cardContainer = document.querySelector(".card_Container")
 
@@ -30,14 +36,27 @@ for (let i = 0; i < card.length; i++) {
   inputGool.type = "text"
   inputGool.classList.add("input")
   inputGool.placeholder = "0"
-  inputGool.id = `gool`
+  inputGool.id = `gool${card[i]}`
+
+  var Resultado = document.createElement("div")
+  Resultado.id = `result${card[i]}`
 
   var button = document.createElement("button")
   button.type = "button"
   button.textContent = "Vitória"
   button.classList.add("button")
   button.id = "vitoria"
-  button.onclick = function vote() {}
+  button.onclick = function vote() {
+    var gool = document.getElementById(`gool${card[i]}`).value
+    if (gool == 0 || gool === 0) {
+      var resultado = document.getElementById(`result${card[i]}`)
+      resultado.textContent = `Vitória do ${card[i].nameTime1}`
+    } else {
+      var resultado = document.getElementById(`result${card[i]}`)
+      resultado.textContent = `Vitória do ${card[i].nameTime1} com ${gool} gools!`
+    }
+    document.getElementById(`gool${card[i]}`).value = " "
+  }
 
   playerCard.appendChild(nameTime)
   playerCard.appendChild(img)
@@ -50,17 +69,17 @@ for (let i = 0; i < card.length; i++) {
   const cardInfo = document.createElement("div")
   cardInfo.classList.add("info")
 
-  const empate = document.createElement("h2")
-  empate.classList.add("result")
-  empate.id = "result"
-
   var button = document.createElement("button")
   button.type = "button"
   button.textContent = "EMPATE"
   button.classList.add("button")
   button.id = "empate"
-  button.onclick = function vote() {}
+  button.onclick = function vote() {
+    var resultado = document.getElementById(`result${card[i]}`)
+    resultado.textContent = `EMPATE`
+  }
 
+  cardInfo.appendChild(Resultado)
   cardInfo.appendChild(button)
 
   /**Segundo card */
@@ -82,14 +101,27 @@ for (let i = 0; i < card.length; i++) {
   input.type = "text"
   input.classList.add("input")
   input.placeholder = "0"
-  input.id = `gool`
+  input.id = `gool${card[i]}`
+
+  var Resultado = document.createElement("div")
+  Resultado.id = `result${card[i]}`
 
   var button = document.createElement("button")
   button.type = "button"
   button.textContent = "Vitória"
   button.classList.add("button")
   button.id = "empate"
-  button.onclick = function vote() {}
+  button.onclick = function vote1() {
+    var gool1 = document.getElementById(`gool${card[i]}`).value
+    if (gool1 == 0 || gool1 === 0) {
+      var resultado = document.getElementById(`result${card[i]}`)
+      resultado.textContent = `Vitória do ${card[i].nameTime2}`
+    } else {
+      var resultado = document.getElementById(`result${card[i]}`)
+      resultado.textContent = `Vitória do ${card[i].nameTime2} com ${gool1} gools!`
+    }
+    document.getElementById(`gool${card[i]}`).value = " "
+  }
 
   playcar.appendChild(name)
   playcar.appendChild(img1)
